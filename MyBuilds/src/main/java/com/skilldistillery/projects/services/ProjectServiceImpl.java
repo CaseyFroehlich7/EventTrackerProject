@@ -1,6 +1,7 @@
 package com.skilldistillery.projects.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,26 +22,44 @@ public class ProjectServiceImpl implements ProjectService {
 
 	@Override
 	public CarpentryProjects getCarpentryProjects(int projectId) {
-		// TODO Auto-generated method stub
-		return null;
+		CarpentryProjects project = null;
+		Optional<CarpentryProjects> projectOpt = projectRepo.findById(projectId);
+		if(projectOpt.isPresent()) {
+			project = projectOpt.get();
+		}
+		return project;
 	}
 
 	@Override
 	public CarpentryProjects create(CarpentryProjects project) {
-		// TODO Auto-generated method stub
-		return null;
+		return projectRepo.saveAndFlush(project);
+		
 	}
 
 	@Override
-	public CarpentryProjects updated(int projectId, CarpentryProjects project) {
-		// TODO Auto-generated method stub
-		return null;
+	public CarpentryProjects updated(int id, CarpentryProjects project) {
+		CarpentryProjects projectUpdate = getCarpentryProjects(id);
+		projectUpdate.setTitle(project.getTitle());
+		projectUpdate.setDescription(project.getDescription());
+		projectUpdate.setJobType(project.getJobType());
+		projectUpdate.setLocation(project.getLocation());
+		projectUpdate.setImgUrl(project.getImgUrl());
+		projectUpdate.setDate(project.getDate());
+		projectUpdate.setHelpers(project.getHelpers());
+		projectUpdate.setCustomerName(project.getCustomerName());
+		return projectRepo.save(projectUpdate);
+	
 	}
 
 	@Override
 	public boolean deleteById(int projectId) {
-		// TODO Auto-generated method stub
-		return false;
+		projectRepo.deleteById(projectId);
+		return !projectRepo.existsById(projectId);
 	}
 
+
+
+
 }
+
+
