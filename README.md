@@ -2,9 +2,11 @@
 
 ### Project Description:
 
-The task for the first part of the EventTrackerProject was to produce a concept that could be tracked as well as all CRUD functions could be applied to. As a previous carpenter, I wanted to create an application where I could add the titles, descriptions, dates, and photos of not only previous projects but future projects as well. Using MySqlWorkbench, I created a database schema model where I currently have implemented one table with multiple columns but plan to add additional tables in the future.
+The task for the first part of the EventTrackerProject was to produce a concept that could be tracked and all CRUD functions could be applied to it as well. As a previous carpenter, I wanted to create an application where I could track all of the details and photos from previous projects and future projects as well. Using MySqlWorkbench, I created a database schema model where I currently have implemented one table with multiple columns but plan to add additional tables in the future.
 
-I then created a JPA Project, an entity class that models the database table, and successfully mapped the POJO using JPA. The next step was to configure a Spring Boot Application to publish a REST API using REST annotations and Spring Data JPA to perform all CRUD operations. Lastly, I tested all routes using Postman and deployed the project to my EC2 instance.
+I then created a JPA Project, an entity class that models the database table, and successfully mapped the POJO using JPA. The next step was to configure a Spring Boot Application to publish a REST API using REST annotations and Spring Data JPA to perform all CRUD operations. Lastly, I tested all routes using Postman and deployed the project to my EC2 instance which is linked below.
+
+The EventTrackerProject will be worked in 3 phases. The following link will currently display an error as the first phase was back-end focused. In the coming weeks, JavaScript and Angular will be added to create a visually appealing front-end. 
 
 AWS: http://52.5.120.254:8080/MyBuilds/
 
