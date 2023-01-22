@@ -2,6 +2,9 @@
 
 ### Project Description:
 
+The task for the first part of the EventTrackerProject was to produce a concept that could be tracked as well as all CRUD functions could be applied to. As a previous carpenter, I wanted to create an application where I could add the titles, descriptions, dates, and photos of not only previous projects but future projects as well. Using MySqlWorkbench, I created a database schema model where I currently have implemented one table with multiple columns but plan to add additional tables in the future.
+
+I then created a JPA Project, an entity class that models the database table, and successfully mapped the POJO using JPA. The next step was to configure a Spring Boot Application to publish a REST API using REST annotations and Spring Data JPA to perform all CRUD operations. Lastly, I tested all routes using Postman and deployed the project to my EC2 instance. 
 ### Expected Routes:
 
 | HTTP Verb | URI                  | Request Body | Response Body |
@@ -15,14 +18,16 @@
 ### Technologies Used:
 <ul>
 <li>Java</li>
+<li>REST</li>
 <li>SpringBoot</li>
 <li>Hibernate</li>
 <li>MySQL</li>
 <li>Gradle</li>
 <li>Git</li>
-<li>JPA</li>
+<li>Spring Data JPA</li>
 <li>Spring Tool Suite</li>
 <li>Postman</li>
+<li>AWS</li>
 
 </ul>
 
