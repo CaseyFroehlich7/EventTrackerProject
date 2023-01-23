@@ -6,9 +6,9 @@ The task for the first part of the EventTrackerProject was to produce a concept 
 
 I then created a JPA Project, an entity class that models the database table, and successfully mapped the POJO using JPA. The next step was to configure a Spring Boot Application to publish a REST API using REST annotations and Spring Data JPA to perform all CRUD operations. Lastly, I tested all routes using Postman and deployed the project to my EC2 instance which is linked below.
 
-The EventTrackerProject will be worked in 3 phases. The following link will currently display an error as the first phase was back-end focused. In the coming weeks, JavaScript and Angular will be added to create a visually appealing front-end. 
+The EventTrackerProject will be worked in 3 phases. The following link will currently display an error as the first phase was back-end focused. In the coming weeks, JavaScript and Angular will be added to create a visually appealing front-end.
 
-AWS: http://52.5.120.254:8080/MyBuilds/
+AWS: http://52.5.120.254:8080/MyBuilds/api/carpentryprojects
 
 ### Expected Routes:
 
