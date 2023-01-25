@@ -15,7 +15,7 @@ AWS: http://52.5.120.254:8080/MyBuilds/api/carpentryprojects
 | HTTP Verb | URI                  | Request Body | Response Body |
 |-----------|----------------------|--------------|---------------|
 | GET       | `/api/carpentryprojects`    |              | JSON of `List<CarpentryProjects>` |
-| GET       | `/api/carpentryprojects/1` |              | JSON of `CarpentryProjects` 1 |
+| GET       | `/api/carpentryprojects/{id}` |              | JSON of `CarpentryProjects` {id} |
 | POST      | `/api/carpentryprojects`    | JSON of a new `CarpentryProjects` | JSON of created `CarpentryProjects` |
 | PUT       | `/api/carpentryprojects/16` | JSON of a new version of `CarpentryProjects` 16 | JSON of updated `CarpentryProjects` |
 | DELETE    | `/api/carpentryprojects/16` |              | |
