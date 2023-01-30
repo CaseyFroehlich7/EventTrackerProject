@@ -64,7 +64,6 @@ INSERT INTO `carpentry_projects` (`id`, `title`, `description`, `job_type`, `loc
 INSERT INTO `carpentry_projects` (`id`, `title`, `description`, `job_type`, `location`, `img_url`, `date`, `helpers`, `customer_name`) VALUES (13, 'Front Porch Columns', 'Removed aluminum front porch columns and added rustic beams', 'Remodel', 'Hanover', NULL, '2022-02-23', NULL, 'Wildasin');
 INSERT INTO `carpentry_projects` (`id`, `title`, `description`, `job_type`, `location`, `img_url`, `date`, `helpers`, `customer_name`) VALUES (14, 'Custom Closet', 'Built custom closet and floating shoe rack', 'Remodel', 'New Oxford', NULL, '2022-01-15', NULL, 'Crazies');
 INSERT INTO `carpentry_projects` (`id`, `title`, `description`, `job_type`, `location`, `img_url`, `date`, `helpers`, `customer_name`) VALUES (15, 'Office Remodel', 'Removed carpet, refinished hardwood floors and built custom shelving, painted, added new light fixtures', 'Remodel', 'Hanover', NULL, '2022-09-06', NULL, 'Lapresti');
-INSERT INTO `carpentry_projects` (`id`, `title`, `description`, `job_type`, `location`, `img_url`, `date`, `helpers`, `customer_name`) VALUES (16, 'Exterior Home Remodel', 'Added new vinyl siding, new architectural shingles, windows, garage door, and new deck', 'Remodel', 'Abbottstown', 'IMG_2677.JPG', '2020-01-01', NULL, NULL);
 
 COMMIT;
 
