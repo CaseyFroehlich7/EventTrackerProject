@@ -6,7 +6,86 @@
 <script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
-<h1>Builds</h1>
+<h1>Build It.</h1>
+
+  <form name="projectForm">
+    <input type="number" name="projectId">
+    <button name="lookup">Find Project By Id</button>
+  </form>
+  <br><br>
+  
+  <form name="loadProjectForm">
+  <button name="loadProjects">Load All Projects</button><br>
+  </form>
+  
+  
+  <div id="output">
+    <div id="projectData"></div>
+    </div>
+    <br>
+    <br>
+    
+    
+
+  
+
+  <h3>Add New Project:</h3>
+
+  <form name="newProjectForm">
+  <label for="title">Project Title:</label>
+  <input type="text" name="title" placeholder="Project Title"> <br><br>
+  
+  <label for="description">Project Description:</label>
+  <input type="text" name="description" placeholder="Description"> <br><br>
+  
+  <label for="jobType">Job Type:</label>
+  <input type="text" name="jobType" placeholder="Type"> <br><br>
+  
+  <label for="location">Location:</label>
+  <input type="text" name="location" placeholder="Location"> <br><br>
+  
+  <label for="imgUrl">Project Images:</label>
+  <input type="text" name="imgUrl" placeholder="Add Images"> <br><br>
+  
+  <label for="date">Project Date:</label>
+  <input type="date" name="date" placeholder="Date"> <br><br>
+  
+  <label for="helpers">Project Help:</label>
+  <input type="text" name="helpers" placeholder="Helpers"> <br><br>
+  
+  <label for="customerName">Customer Name:</label>
+  <input type="text" name="customerName" placeholder="Customer Name"> <br><br>
+  
+  <button name="addProjectButton">Add Project</button>
+  </form>
+
+	<form id="updateProjectForm" style="display:none">
+			<input
+				type="text" placeholder="Title" name="title"> <input
+				type="text" placeholder="Description" name="description"> <input
+				type="text" placeholder="Job Type" name="jobType"><input>
+				type="text" placeholder="Job Type" name="jobType"><input>
+				type="text" placeholder="Job Type" name="jobType"><input>
+				type="text" placeholder="Job Type" name="jobType"><input>
+				type="text" placeholder="Job Type" name="jobType"><input>
+			
+				
+				
+				
+				<select
+				id="updateLanguageSelections">
+			</select> 
+			<select id="updateSeriesSelections">
+			</select>
+			<button type="submit" value="Submit" id="updateFormButton">Update</button>
+		</form>
+
+
+
+
+
+
+
 
 </body>
 </html>

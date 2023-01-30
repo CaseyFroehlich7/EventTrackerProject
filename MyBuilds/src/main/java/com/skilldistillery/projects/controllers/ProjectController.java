@@ -33,6 +33,7 @@ public class ProjectController {
 	
 	@GetMapping("carpentryprojects/{id}")
 	public CarpentryProjects getProjects(@PathVariable Integer id, HttpServletResponse res) {
+		System.out.println(id);
 		CarpentryProjects project = projectService.getCarpentryProjects(id); 
 		if (project == null) {
 			res.setStatus(404);
