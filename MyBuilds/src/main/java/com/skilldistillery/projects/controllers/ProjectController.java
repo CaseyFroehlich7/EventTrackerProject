@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,21 +21,22 @@ import com.skilldistillery.projects.services.ProjectService;
 
 @RestController
 @RequestMapping("api")
+@CrossOrigin({ "*", "http://localhost/"})
 public class ProjectController {
 	
 	@Autowired
 	private ProjectService projectService;
 	
 	@GetMapping("carpentryprojects")
-	public List<CarpentryProjects> listAllProjects(){
+	public List<CarpentryProjects> allProjects(){
 		return projectService.allProjects();
 	}
 	
 	
-	@GetMapping("carpentryprojects/{id}")
-	public CarpentryProjects getProjects(@PathVariable Integer id, HttpServletResponse res) {
-		System.out.println(id);
-		CarpentryProjects project = projectService.getCarpentryProjects(id); 
+	@GetMapping("carpentryprojects/{projectId}")
+	public CarpentryProjects getCarpentryProjects(HttpServletRequest req, HttpServletResponse res, @PathVariable int projectId) {
+		System.out.println(projectId);
+		CarpentryProjects project = projectService.getCarpentryProjects(projectId); 
 		if (project == null) {
 			res.setStatus(404);
 		}
@@ -42,23 +44,30 @@ public class ProjectController {
 	}
 	
 	@PostMapping("carpentryprojects")
-	public CarpentryProjects create(@RequestBody CarpentryProjects project, HttpServletResponse res, HttpServletRequest req) {
+	public CarpentryProjects create(HttpServletRequest req, HttpServletResponse res, @RequestBody CarpentryProjects project) {
 		try {
-			projectService.create(project);
-			res.setStatus(201);
-			StringBuffer url = req.getRequestURL();
-			url.append("/").append(project.toString());
+			project = projectService.create(project);
+			if (project != null) {
+				res.setStatus(201);
+				StringBuffer url = req.getRequestURL();
+				url.append("/").append(project.getId());
+				res.setHeader("Location", url.toString());
+			} else {
+				res.setStatus(401);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			res.setStatus(404);
+			res.setStatus(400);
+			project = null;
+
 		}
-		return project;
+		return null;
 	}
 	
-	@PutMapping("carpentryprojects/{id}")
-	public CarpentryProjects update(@PathVariable Integer id, @RequestBody CarpentryProjects project, HttpServletResponse res) {
+	@PutMapping("carpentryprojects/{projectId}")
+	public CarpentryProjects updated(HttpServletRequest req, HttpServletResponse res, @RequestBody CarpentryProjects project, @PathVariable int projectId) {
 		try {
-			project = projectService.updated(id, project);
+			project = projectService.updated(project, projectId);
 			if(project == null) {
 				res.setStatus(404);
 			}
@@ -71,21 +80,17 @@ public class ProjectController {
 	}
 	
 
-	@DeleteMapping("carpentryprojects/{id}")
-	public void delete(@PathVariable Integer id, HttpServletResponse res) {
+	@DeleteMapping("carpentryprojects/{projectId}")
+	public void delete(HttpServletRequest req, HttpServletResponse res, @PathVariable int projectId) {
 		try {
-			if (projectService.deleteById(id)) {
+			if (projectService.deleteById(projectId)) {
 				res.setStatus(204);
 			} else {
 				res.setStatus(404);
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			res.setStatus(400);
-
 		}
 	}
-
-
 }

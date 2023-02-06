@@ -5,9 +5,14 @@ import java.util.List;
 import com.skilldistillery.projects.entities.CarpentryProjects;
 
 public interface ProjectService {
+	
 List<CarpentryProjects> allProjects();
-CarpentryProjects getCarpentryProjects(int projectId);
-CarpentryProjects create(CarpentryProjects project);
-CarpentryProjects updated(int projectId, CarpentryProjects project);
+
+public CarpentryProjects getCarpentryProjects(int projectId);
+
+public CarpentryProjects create(CarpentryProjects project);
+
+public CarpentryProjects updated(CarpentryProjects project, int projectId);
+
 boolean deleteById(int projectId);
 }

@@ -1,0 +1,189 @@
+
+
+<table class="table table-success table-striped">
+  <thead class="table-dark">
+<div>
+ Title: <input type="text" name="title" [(ngModel)]="newCarpentryProject.title"><br><br>
+Description: <input type="text" name="description" [(ngModel)]="newCarpentryProject.description"><br><br>
+  Job Type: <input type="text" name="jobType" [(ngModel)]="newCarpentryProject.jobType"><br><br>
+  Location: <input type="text" name="location" [(ngModel)]="newCarpentryProject.location"><br><br>
+ Project Images: <input type="text" name="imgUrl" [(ngModel)]="newCarpentryProject.imgUrl"><br><br>
+  Project Date: <input type="date" name="date" [(ngModel)]="newCarpentryProject.date"><br><br>
+  Crew: <input type="text" name="helpers" [(ngModel)]="newCarpentryProject.helpers"><br><br>
+  Customer Name: <input type="text" name="customerName" [(ngModel)]="newCarpentryProject.customerName"><br><br>
+ <button (click)="createCarpentryProjects(newCarpentryProject)">Create Project</button> <br>
+</div>
+</thead>
+</table>
+<br>
+<br>
+
+<table class="table table-dark table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>TITLE</th>
+      <th>DESCRIPTION</th>
+      <th>JOB TYPE</th>
+      <th>LOCATION</th>
+      <th>DATE</th>
+      <th>CREW</th>
+      <th>CUSTOMER</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let project of projects">
+    <td>{{ project.id }}</td>
+    <td>{{ project.title }}</td>
+    <td>{{ project.description }}</td>
+    <td>{{ project.jobType }}</td>
+    <td>{{ project.location }}</td>
+    <td>{{ project.date }}</td>
+    <td>{{ project.helpers }}</td>
+    <td>{{ project.customerName }}</td>
+    <td>  <button class="btn btn-success" (click)="setEditCarpentryProjects(project)">Edit</button></td>
+    <td><button class="btn btn-danger" (click)="deleteCarpentryProjects(project.id)">Delete</button></td>
+  </tr>
+  </tbody>
+</table>
+<br>
+
+<form>
+<div class="row" *ngIf="editCarpentryProjects">
+  <div class="col-auto">
+  <input class="form-control" type="text" name="title" placeholder="title" [(ngModel)]="editCarpentryProjects.title" />
+</div>
+<div class="col-auto">
+  <input class="form-control" type="text" name="description" placeholder="description" [(ngModel)]="editCarpentryProjects.description" />
+</div>
+<div class="col-auto">
+  <input class="form-control" type="text" name="jobType" placeholder="Job Type" [(ngModel)]="editCarpentryProjects.jobType" />
+</div>
+  <div class="col-auto">
+  <input class="form-control" type="text" name="location" placeholder="location" [(ngModel)]="editCarpentryProjects.location" />
+</div>
+<div class="col-auto">
+  <input class="form-control" type="date" name="date" placeholder="date" [(ngModel)]="editCarpentryProjects.date" />
+</div>
+<div class="col-auto">
+  <input class="form-control" type="text" name="crew" placeholder="crew" [(ngModel)]="editCarpentryProjects.helpers" />
+</div>
+<div class="col-auto">
+  <input class="form-control" type="text" name="customerName" placeholder="customer name" [(ngModel)]="editCarpentryProjects.customerName" />
+</div>
+  <input type="text" name="editCarpentryProjects.completed" ngModel />
+  <button (click)="editCarpentryProjects = null">Cancel</button>
+  <button (click)="updateCarpentryProject(editCarpentryProjects)">Save</button>
+</div>
+</form>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <p>Create New Project</p>
+
+<table class="table table-success table-striped">
+  <thead class="table-dark">
+<div>
+ Title: <input type="text" name="title" [(ngModel)]="newCarpentryProject.title"><br><br>
+Description: <input type="text" name="description" [(ngModel)]="newCarpentryProject.description"><br><br>
+  Job Type: <input type="text" name="jobType" [(ngModel)]="newCarpentryProject.jobType"><br><br>
+  Location: <input type="text" name="location" [(ngModel)]="newCarpentryProject.location"><br><br>
+ Project Images: <input type="text" name="imgUrl" [(ngModel)]="newCarpentryProject.imgUrl"><br><br>
+  Project Date: <input type="text" name="date" [(ngModel)]="newCarpentryProject.date"><br><br>
+  Crew: <input type="text" name="helpers" [(ngModel)]="newCarpentryProject.helpers"><br><br>
+  Customer Name: <input type="text" name="customerName" [(ngModel)]="newCarpentryProject.customerName"><br><br>
+ Project Id: <input type="number" name="id" [(ngModel)]="newCarpentryProject.id"><br><br>
+ <button (click)="createCarpentryProject(newCarpentryProject)">Create Project</button> <br>
+</div>
+</thead>
+</table>
+<br>
+<br>
+
+
+<table class="table table-success table-striped" *ngIf="!selected">
+<thead class="table-dark">
+  <tr class="bg-primary">
+    <td>Id</td>
+    <td>Title</td>
+    <td>description</td>
+    <td>Job Type</td>
+    <td>Location</td>
+    <td>Project Images</td>
+    <td>Project Date</td>
+    <td>Crew</td>
+    <td>Customer Name</td>
+
+
+  </tr>
+</thead>
+<tbody>
+  <tr (click)="selected = project" *ngFor="let project of projects">
+    <td>{{project.id}}</td>
+    <td>{{project.title}}</td>
+    <td>{{project.description}}</td>
+    <td>{{project.jobType}}</td>
+    <td>{{project.location}}</td>
+    <td>{{project.imgUrl}}</td>
+    <td>{{project.date}}</td>
+    <td>{{project.helpers}}</td>
+    <td>{{project.customerName}}</td>
+
+
+  </tr>
+</tbody>
+</table>
+
+<div  *ngIf="selected && ! editCarpentryProjects">
+  <img [src]="selected.imgUrl" alt="">
+  Project ID: <p>{{selected.id}}</p>
+  Title: <p>{{selected.title}}</p>
+  Description: <p>{{selected.description}}</p>
+  Job Type: <p>{{selected.jobType}}</p>
+  Location: <p>{{selected.location}}</p>
+  Date: <p>{{selected.date}}</p>
+  Crew: <p>{{selected.helpers}}</p>
+  Customer Name: <p>{{selected.customerName}}</p>
+
+  <button class="btn btn-primary" type="submit" (click)="displayCarpentryProjects()">BACK  </button>
+  <button class="btn btn-primary" type="submit" (click)="setEditCarpentryProjects()">EDIT  </button>
+
+</div> -->
+
+
+
+

@@ -6,5 +6,6 @@ import com.skilldistillery.projects.entities.CarpentryProjects;
 
 public interface ProjectRepository extends JpaRepository<CarpentryProjects, Integer> {
 	
+	CarpentryProjects findProjectById(int projectId);
 
 }

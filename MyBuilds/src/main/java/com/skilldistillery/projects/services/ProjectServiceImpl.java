@@ -37,8 +37,9 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public CarpentryProjects updated(int id, CarpentryProjects project) {
-		CarpentryProjects projectUpdate = getCarpentryProjects(id);
+	public CarpentryProjects updated(CarpentryProjects project, int projectId) {
+		
+		CarpentryProjects projectUpdate = projectRepo.findProjectById(projectId);
 		projectUpdate.setTitle(project.getTitle());
 		projectUpdate.setDescription(project.getDescription());
 		projectUpdate.setJobType(project.getJobType());
@@ -56,6 +57,8 @@ public class ProjectServiceImpl implements ProjectService {
 		projectRepo.deleteById(projectId);
 		return !projectRepo.existsById(projectId);
 	}
+
+
 
 
 
