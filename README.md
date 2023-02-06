@@ -4,9 +4,9 @@
 
 The task for the first part of the EventTrackerProject was to produce a concept that could be tracked and all CRUD functions could be applied to it as well. As a previous carpenter, I wanted to create an application where I could track all of the details and photos from previous projects and future projects as well. Using MySqlWorkbench, I created a database schema model where I currently have implemented one table with multiple columns but plan to add additional tables in the future.
 
-I then created a JPA Project, an entity class that models the database table, and successfully mapped the POJO using JPA. The next step was to configure a Spring Boot Application to publish a REST API using REST annotations and Spring Data JPA to perform all CRUD operations. Lastly, I tested all routes using Postman and deployed the project to my EC2 instance which is linked below.
+I then created a JPA Project, an entity class that models the database table, and successfully mapped the POJO using JPA. The next step was to configure a Spring Boot Application to publish a REST API using REST annotations and Spring Data JPA to perform all CRUD operations. Lastly, I tested all routes using Postman and deployed the project to my EC2 instance. To complete this project, a front-end was added using Angular. I created services, models, and components for my entities. This project allows a user to perform full CRUD. I look forward to coming back to this project to add more styling.
 
-The EventTrackerProject will be worked in 3 phases. The following link will currently display an error as the first phase was back-end focused. In the coming weeks, JavaScript and Angular will be added to create a visually appealing front-end.
+
 
 AWS: http://52.5.120.254:8080/MyBuilds/api/carpentryprojects
 
